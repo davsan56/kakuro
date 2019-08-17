@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54C80A522308365700C136CA /* PuzzleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C80A502308365700C136CA /* PuzzleLoader.swift */; };
+		54C80A532308365700C136CA /* puzzle1.json in Resources */ = {isa = PBXBuildFile; fileRef = 54C80A512308365700C136CA /* puzzle1.json */; };
+		54C80A552308366D00C136CA /* KakuroPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C80A542308366D00C136CA /* KakuroPuzzle.swift */; };
 		63E65BB52307435B00B69E6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E65BB42307435B00B69E6D /* AppDelegate.swift */; };
 		63E65BB72307435B00B69E6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E65BB62307435B00B69E6D /* SceneDelegate.swift */; };
 		63E65BB92307435B00B69E6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E65BB82307435B00B69E6D /* ContentView.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54C80A502308365700C136CA /* PuzzleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleLoader.swift; sourceTree = "<group>"; };
+		54C80A512308365700C136CA /* puzzle1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = puzzle1.json; sourceTree = "<group>"; };
+		54C80A542308366D00C136CA /* KakuroPuzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroPuzzle.swift; sourceTree = "<group>"; };
 		63E65BB12307435B00B69E6D /* Kakuro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kakuro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E65BB42307435B00B69E6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63E65BB62307435B00B69E6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54C80A4E2308363100C136CA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				54C80A512308365700C136CA /* puzzle1.json */,
+				54C80A502308365700C136CA /* PuzzleLoader.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		54C80A4F2308363800C136CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54C80A542308366D00C136CA /* KakuroPuzzle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		63E65BA82307435B00B69E6D = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +79,8 @@
 		63E65BB32307435B00B69E6D /* Kakuro */ = {
 			isa = PBXGroup;
 			children = (
+				54C80A4F2308363800C136CA /* Models */,
+				54C80A4E2308363100C136CA /* Data */,
 				63E65BB42307435B00B69E6D /* AppDelegate.swift */,
 				63E65BB62307435B00B69E6D /* SceneDelegate.swift */,
 				63E65BB82307435B00B69E6D /* ContentView.swift */,
@@ -136,6 +161,7 @@
 				63E65BC12307435C00B69E6D /* LaunchScreen.storyboard in Resources */,
 				63E65BBE2307435C00B69E6D /* Preview Assets.xcassets in Resources */,
 				63E65BBB2307435C00B69E6D /* Assets.xcassets in Resources */,
+				54C80A532308365700C136CA /* puzzle1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +174,9 @@
 			files = (
 				63E65BB52307435B00B69E6D /* AppDelegate.swift in Sources */,
 				63E65BB72307435B00B69E6D /* SceneDelegate.swift in Sources */,
+				54C80A522308365700C136CA /* PuzzleLoader.swift in Sources */,
 				63E65BB92307435B00B69E6D /* ContentView.swift in Sources */,
+				54C80A552308366D00C136CA /* KakuroPuzzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
