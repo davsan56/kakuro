@@ -48,12 +48,11 @@ class PuzzleLoader {
             for j in 0 ..< puzzleData[i].count {
                 var cell = KakuroPuzzleCell()
                 let cellData: String = puzzleData[i][j]
-                cell.blackSpace = (cellData == "b")
+                cell.bwSpace = (cellData == "b" ? .black : .white)
                 
                 if cellData.starts(with: "w|") {
                     let cellDataParts = cellData.split(separator: "|")
                     cell.answer = Int(cellDataParts[1])
-                    cell.whiteSpace = true
                 }
                 
                 else {

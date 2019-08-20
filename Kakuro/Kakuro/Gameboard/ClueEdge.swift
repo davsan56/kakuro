@@ -12,7 +12,7 @@ struct ClueEdge: View {
     var bottomNumber: Int?
     var topNumber: Int?
     
-    var size = 75
+    var size = 50
     
     var body: some View {
         ZStack {

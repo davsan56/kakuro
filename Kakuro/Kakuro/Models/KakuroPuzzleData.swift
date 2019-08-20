@@ -29,8 +29,8 @@ struct KakuroPuzzleData: Decodable {
         // Make sure the data is in a valid format
         // Allowed formats are:
         // b = black/dead edge space
-        // w = white/empty usable space
-        // x|x = split space, x can be empty
+        // w|# = white/answer usable space
+        // #|#, #|, |# = split space, # can be empty
         for row in puzzle {
             for element in row {
                 

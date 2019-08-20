@@ -15,7 +15,7 @@ struct EmptyEdge: View {
     var body: some View {
         // Will probably have to vary the sizes based on size of board
         Rectangle()
-            .frame(width: 75, height: 75, alignment: .center)
+            .frame(width: 50, height: 50, alignment: .center)
     }
 }
 

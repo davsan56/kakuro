@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum BlackWhiteSpace {
+    case black
+    case white
+}
+
 struct KakuroPuzzle {
     var cells: [[KakuroPuzzleCell]]
     
@@ -17,10 +22,9 @@ struct KakuroPuzzle {
                 let cell = cells[i][j]
                 print("location: [\(i), \(j)]")
                 print("answer: \(cell.answer ?? 0)")
-                print("blackSpace: \(cell.blackSpace ?? false)")
                 print("bottomNumber: \(cell.bottomNumber ?? 0)")
                 print("topNumber: \(cell.topNumber ?? 0)")
-                print("whiteSpace: \(cell.whiteSpace ?? false)")
+                print("bwSpace: \(String(describing: cell.bwSpace))")
             }
         }
     }
@@ -30,6 +34,5 @@ struct KakuroPuzzleCell {
     var topNumber: Int? = nil
     var bottomNumber: Int? = nil
     var answer: Int? = nil
-    var blackSpace: Bool? = false
-    var whiteSpace: Bool? = false
+    var bwSpace: BlackWhiteSpace?
 }
