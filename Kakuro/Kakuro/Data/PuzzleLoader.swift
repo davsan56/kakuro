@@ -19,12 +19,15 @@ class PuzzleLoader {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
-                let puzzle = try decoder.decode(KakuroPuzzle.self, from: data)
-                let valid = puzzle.validateData()
+                let puzzleData = try decoder.decode(KakuroPuzzleData.self, from: data)
+                let valid = puzzleData.validateData()
                 if !valid {
+                    print("Invalid JSON")
                     return nil
                 }
-                return puzzle
+                let converted = convertPuzzle(puzzleData: puzzleData)
+                //converted.printCells()
+                return converted
             }
             catch {
                 print(error.localizedDescription)
@@ -33,5 +36,48 @@ class PuzzleLoader {
         return nil
     }
     
+    // Convert puzzle data to model cell array
+    private func convertPuzzle(puzzleData: KakuroPuzzleData) -> KakuroPuzzle {
+        let puzzleData = puzzleData.puzzle
+        var allCells = [[KakuroPuzzleCell]]()
+        
+        for i in 0 ..< puzzleData.count {
+            
+            var cellRow = [KakuroPuzzleCell]()
+            
+            for j in 0 ..< puzzleData[i].count {
+                var cell = KakuroPuzzleCell()
+                let cellData: String = puzzleData[i][j]
+                cell.blackSpace = (cellData == "b")
+                
+                if cellData.starts(with: "w|") {
+                    let cellDataParts = cellData.split(separator: "|")
+                    cell.answer = Int(cellDataParts[1])
+                    cell.whiteSpace = true
+                }
+                
+                else {
+                    let cellDataParts = cellData.split(separator: "|")
+                    // Either |# or #|
+                    if cellDataParts.count == 1 {
+                        if cellData.starts(with: "|") {
+                            cell.bottomNumber = Int(cellDataParts[0])
+                        }
+                        else {
+                            cell.topNumber = Int(cellDataParts[0])
+                        }
+                    }
+                    // #|#
+                    else {
+                        cell.topNumber = Int(cellDataParts[0])
+                        cell.bottomNumber = Int(cellDataParts[1])
+                    }
+                }
+                cellRow.append(cell)
+            }
+            allCells.append(cellRow)
+        }
+        return KakuroPuzzle(cells: allCells)
+    }
 }
 
