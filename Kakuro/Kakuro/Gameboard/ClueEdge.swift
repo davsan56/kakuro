@@ -39,6 +39,7 @@ struct ClueEdge: View {
             }
         }
         .frame(width: CGFloat(size), height: CGFloat(size), alignment: .center)
+            .background(Color.black)
     }
 }
 
