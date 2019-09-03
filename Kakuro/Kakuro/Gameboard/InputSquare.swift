@@ -9,16 +9,17 @@
 import SwiftUI
 
 struct InputSquare: View {
-    var size: CGFloat = 50
+    @EnvironmentObject var manager: Manager
     
-    @State var selected = false
+    var id: (Int, Int)
+    var size: CGFloat = 50
     
     var body: some View {
         Rectangle()
-            .foregroundColor(selected ? .blue : .white)
+            .foregroundColor(manager.selectedCell ?? (-1, -1) == id ? .blue : .white)
             .border(Color.black)
             .onTapGesture {
-                self.selected.toggle()
+                self.manager.selectedCell = self.id
             }
             .frame(width: size, height: size, alignment: .center)
     }
@@ -26,7 +27,8 @@ struct InputSquare: View {
 
 struct InputSquare_Previews: PreviewProvider {
     static var previews: some View {
-        InputSquare()
+        InputSquare(id: (0, 0))
             .previewLayout(PreviewLayout.fixed(width: 100, height: 100))
+            .environmentObject(Manager())
     }
 }

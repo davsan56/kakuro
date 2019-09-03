@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var manager: Manager
+    
     // TODO: not this..
     let puzzles = PuzzleLoader.shared.loadPuzzles(filename: "puzzle1")?.cells
     
@@ -22,7 +24,8 @@ struct ContentView: View {
                         if self.puzzles![row][column].bwSpace! == .black {
                             EmptyEdge()
                         } else if self.puzzles![row][column].answer != nil {
-                            InputSquare()
+                            InputSquare(id: (row, column))
+                                .environmentObject(self.manager)
                         } else {
                             ClueEdge(bottomNumber: self.puzzles![row][column].bottomNumber, topNumber: self.puzzles![row][column].topNumber)
                         }
@@ -38,6 +41,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Manager())
     }
 }
 #endif

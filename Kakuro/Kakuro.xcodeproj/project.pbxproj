@@ -20,6 +20,7 @@
 		63E65BBB2307435C00B69E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E65BBA2307435C00B69E6D /* Assets.xcassets */; };
 		63E65BBE2307435C00B69E6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E65BBD2307435C00B69E6D /* Preview Assets.xcassets */; };
 		63E65BC12307435C00B69E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63E65BBF2307435C00B69E6D /* LaunchScreen.storyboard */; };
+		86492F6D231EEBE500BE828E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492F6C231EEBE500BE828E /* Manager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		63E65BBD2307435C00B69E6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		63E65BC02307435C00B69E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63E65BC22307435C00B69E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86492F6C231EEBE500BE828E /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		63E65BB32307435B00B69E6D /* Kakuro */ = {
 			isa = PBXGroup;
 			children = (
+				86492F6B231EEBCE00BE828E /* Shared */,
 				63995590230B83050046809C /* Gameboard */,
 				54C80A4F2308363800C136CA /* Models */,
 				54C80A4E2308363100C136CA /* Data */,
@@ -118,6 +121,14 @@
 				63E65BBD2307435C00B69E6D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86492F6B231EEBCE00BE828E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				86492F6C231EEBE500BE828E /* Manager.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 				54C80A522308365700C136CA /* PuzzleLoader.swift in Sources */,
 				63E65BB92307435B00B69E6D /* ContentView.swift in Sources */,
 				54C80A552308366D00C136CA /* KakuroPuzzleData.swift in Sources */,
+				86492F6D231EEBE500BE828E /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
