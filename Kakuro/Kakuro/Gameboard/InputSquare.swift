@@ -11,11 +11,16 @@ import SwiftUI
 struct InputSquare: View {
     var size: CGFloat = 50
     
+    @State var selected = false
+    
     var body: some View {
         Rectangle()
-            .frame(width: size, height: size, alignment: .center)
-            .foregroundColor(.clear)
+            .foregroundColor(selected ? .blue : .white)
             .border(Color.black)
+            .onTapGesture {
+                self.selected.toggle()
+            }
+            .frame(width: size, height: size, alignment: .center)
     }
 }
 
