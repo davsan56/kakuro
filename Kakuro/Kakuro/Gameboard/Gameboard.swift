@@ -22,7 +22,7 @@ struct Gameboard: View {
                     }
                 }
             }
-            Button(action: { self.manager.validateInputAnswers() }) {
+            Button(action: { print("Validate results: \(self.manager.validateInputAnswers())") }) {
                 Text("Validate")
             }
                 .padding(.top, 25)

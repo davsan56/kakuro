@@ -42,13 +42,20 @@ class Manager: ObservableObject {
         self.inputAnswers = allEmpty
     }
     
+    // Check the current board input against known answers
     func validateInputAnswers() -> Bool {
         guard let puzzle = puzzles else { return false }
 
         for i in 0 ..< puzzle.count {
             for j in 0 ..< puzzle[i].count {
-                if let answers = inputAnswers?[i][j] {
-                    // TODO: validate logic here
+                
+                // Checks input against accepted answer
+                // Needs more logic?
+                if let inputAnswer = inputAnswers?[i][j],
+                    let correctAnswer = puzzle[i][j].answer {
+                    if inputAnswer != correctAnswer {
+                        return false
+                    }
                 }
             }
         }
