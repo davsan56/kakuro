@@ -36,11 +36,10 @@ struct InputSquare: View {
             //.foregroundColor(manager.selectedCell ?? (-1, -1) == id ? .gray : .white)
             .frame(width: size, height: size, alignment: .center)
             .border(Color.black, width: 0.5)
+            .background(self.manager.selectedCell ?? (-1, -1) == self.id ? Color.blue.opacity(0.5) : Color.white)
             .multilineTextAlignment(.center)
             .onTapGesture {
                 self.manager.selectedCell = self.id
-                
-                // TODO: clicked cell change color here
             }
     }
 }
