@@ -22,10 +22,15 @@ struct Gameboard: View {
                     }
                 }
             }
+            
             Button(action: { print("Validate results: \(self.manager.validateInputAnswers())") }) {
                 Text("Validate")
             }
                 .padding(.top, 25)
+            
+            NumberInputBar()
+                .padding(.top, 25)
+                .environmentObject(self.manager)
         }
     }
 }

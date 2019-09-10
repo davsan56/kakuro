@@ -20,6 +20,8 @@
 		63E65BBB2307435C00B69E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E65BBA2307435C00B69E6D /* Assets.xcassets */; };
 		63E65BBE2307435C00B69E6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E65BBD2307435C00B69E6D /* Preview Assets.xcassets */; };
 		63E65BC12307435C00B69E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63E65BBF2307435C00B69E6D /* LaunchScreen.storyboard */; };
+		8626F7A52327F68200A2F039 /* NumberInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F7A42327F68200A2F039 /* NumberInput.swift */; };
+		8626F7A72327F6D300A2F039 /* NumberInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F7A62327F6D300A2F039 /* NumberInputBar.swift */; };
 		86492F6D231EEBE500BE828E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492F6C231EEBE500BE828E /* Manager.swift */; };
 		86492F73231F192B00BE828E /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492F72231F192B00BE828E /* GameCell.swift */; };
 		86492F75231F1E7500BE828E /* Gameboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492F74231F1E7500BE828E /* Gameboard.swift */; };
@@ -41,6 +43,8 @@
 		63E65BBD2307435C00B69E6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		63E65BC02307435C00B69E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63E65BC22307435C00B69E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8626F7A42327F68200A2F039 /* NumberInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInput.swift; sourceTree = "<group>"; };
+		8626F7A62327F6D300A2F039 /* NumberInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputBar.swift; sourceTree = "<group>"; };
 		86492F6C231EEBE500BE828E /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		86492F72231F192B00BE828E /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		86492F74231F1E7500BE828E /* Gameboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gameboard.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				634D358E230C7A5800565DC3 /* InputSquare.swift */,
 				86492F72231F192B00BE828E /* GameCell.swift */,
 				86492F74231F1E7500BE828E /* Gameboard.swift */,
+				8626F7A42327F68200A2F039 /* NumberInput.swift */,
+				8626F7A62327F6D300A2F039 /* NumberInputBar.swift */,
 			);
 			path = Gameboard;
 			sourceTree = "<group>";
@@ -217,6 +223,8 @@
 				54C80A57230C268B00C136CA /* KakuroPuzzle.swift in Sources */,
 				634D358F230C7A5800565DC3 /* InputSquare.swift in Sources */,
 				63E65BB72307435B00B69E6D /* SceneDelegate.swift in Sources */,
+				8626F7A52327F68200A2F039 /* NumberInput.swift in Sources */,
+				8626F7A72327F6D300A2F039 /* NumberInputBar.swift in Sources */,
 				54C80A522308365700C136CA /* PuzzleLoader.swift in Sources */,
 				63E65BB92307435B00B69E6D /* ContentView.swift in Sources */,
 				54C80A552308366D00C136CA /* KakuroPuzzleData.swift in Sources */,

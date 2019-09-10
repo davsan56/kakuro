@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct InputSquare: View {
+struct InputSquare: View, Equatable {
     @EnvironmentObject var manager: Manager
     @State private var currentValue: Int = 0
     
@@ -33,14 +33,21 @@ struct InputSquare: View {
             self.manager.inputAnswers?[self.id.0][self.id.1] = self.currentValue
         }
             .keyboardType(.numberPad)
-            //.foregroundColor(manager.selectedCell ?? (-1, -1) == id ? .gray : .white)
             .frame(width: size, height: size, alignment: .center)
             .border(Color.black, width: 0.5)
-            .background(self.manager.selectedCell ?? (-1, -1) == self.id ? Color.blue.opacity(0.5) : Color.white)
+            .background(self.manager.selectedCell == self ? Color.blue.opacity(0.5) : Color.white)
             .multilineTextAlignment(.center)
             .onTapGesture {
-                self.manager.selectedCell = self.id
+                self.manager.selectedCell = self
             }
+    }
+    
+    func setText(num: Int) {
+        self.currentValue = num
+    }
+    
+    static func == (lhs: InputSquare, rhs: InputSquare) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 

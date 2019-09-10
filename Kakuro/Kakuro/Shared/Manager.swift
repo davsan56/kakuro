@@ -11,7 +11,7 @@ import SwiftUI
 
 class Manager: ObservableObject {
     static let shared = Manager()
-    @Published var selectedCell: (Int, Int)?
+    @Published var selectedCell: InputSquare?
     @Published var puzzles = PuzzleLoader.shared.loadPuzzles(filename: "puzzle1")?.cells
     @Published var inputAnswers: [[Int]]? = nil
     
