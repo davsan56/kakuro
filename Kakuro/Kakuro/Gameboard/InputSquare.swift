@@ -35,6 +35,7 @@ struct InputSquare: View {
             .keyboardType(.numberPad)
             //.foregroundColor(manager.selectedCell ?? (-1, -1) == id ? .gray : .white)
             .frame(width: size, height: size, alignment: .center)
+            .border(Color.black, width: 0.5)
             .multilineTextAlignment(.center)
             .onTapGesture {
                 self.manager.selectedCell = self.id
@@ -44,6 +45,7 @@ struct InputSquare: View {
     }
 }
 
+#if DEBUG
 struct InputSquare_Previews: PreviewProvider {
     static var previews: some View {
         InputSquare(id: (0, 0))
@@ -51,3 +53,4 @@ struct InputSquare_Previews: PreviewProvider {
             .environmentObject(Manager())
     }
 }
+#endif

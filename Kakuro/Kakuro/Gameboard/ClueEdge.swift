@@ -12,15 +12,16 @@ struct ClueEdge: View {
     var bottomNumber: Int?
     var topNumber: Int?
     
-    var size = 50
+    var size: Double = 50
+    var offset: Double = 0.5
     
     var body: some View {
         ZStack {
             if (bottomNumber != nil) {
                 Path { path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addLine(to: CGPoint(x: 0, y: size))
-                    path.addLine(to: CGPoint(x: size, y: size))
+                    path.move(to: CGPoint(x: offset, y: offset))
+                    path.addLine(to: CGPoint(x: offset, y: size))
+                    path.addLine(to: CGPoint(x: size - (offset * 2), y: size))
                 }
                     .foregroundColor(.gray)
                 Text(String(bottomNumber!))
@@ -29,9 +30,9 @@ struct ClueEdge: View {
             
             if (topNumber != nil) {
                 Path { path in
-                    path.move(to: CGPoint(x: 1, y: 0))
-                    path.addLine(to: CGPoint(x: size + 1, y: 0))
-                    path.addLine(to: CGPoint(x: size + 1, y: size))
+                    path.move(to: CGPoint(x: offset * 2, y: offset))
+                    path.addLine(to: CGPoint(x: size - offset, y: offset))
+                    path.addLine(to: CGPoint(x: size - offset, y: size))
                 }
                     .foregroundColor(.gray)
                 Text(String(topNumber!))
@@ -43,6 +44,7 @@ struct ClueEdge: View {
     }
 }
 
+#if DEBUG
 struct ClueEdge_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -53,3 +55,4 @@ struct ClueEdge_Previews: PreviewProvider {
         .previewLayout(.fixed(width: 100, height: 100))
     }
 }
+#endif

@@ -28,6 +28,7 @@ struct GameCell: View {
     }
 }
 
+#if DEBUG
 struct GameCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -41,3 +42,4 @@ struct GameCell_Previews: PreviewProvider {
         .previewLayout(PreviewLayout.fixed(width: 100, height: 100))
     }
 }
+#endif
