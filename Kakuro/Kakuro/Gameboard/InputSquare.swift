@@ -16,9 +16,8 @@ struct InputSquare: View, Equatable {
     var size: CGFloat = 50
     
     var body: some View {
-        // Have to hit enter for now to make numbers show up
-        // TODO: should be a better way..
-        TextField("", value: $currentValue, formatter: NumberFormatter(), onEditingChanged: { (isChanged) in
+        // TODO: Hide keyboard and other editing features of textfield to make it act like a button
+        TextField("", text: .constant(toDisplay()), onEditingChanged: { (isChanged) in
 
         }) {
             // Editing commited, gross syntax
@@ -40,6 +39,10 @@ struct InputSquare: View, Equatable {
             .onTapGesture {
                 self.manager.selectedCell = self
             }
+    }
+    
+    private func toDisplay() -> String {
+        return self.currentValue == 0 ? "" : String(self.currentValue)
     }
     
     func setText(num: Int) {
