@@ -15,7 +15,6 @@ struct NumberInput: View {
     
     var body: some View {
         Button(action: {
-            // TODO: Somehow set the selected cell to that number
             self.manager.selectedCell?.setText(num: self.number)
         }) {
             Text(String(number))

@@ -16,9 +16,9 @@ struct InputSquare: View, Equatable {
     var size: CGFloat = 50
     
     var body: some View {
-        // TODO: Hide keyboard and other editing features of textfield to make it act like a button
         TextField("", text: .constant(toDisplay()), onEditingChanged: { (isChanged) in
-
+            // Gets rid of everything that makes it act like a textfield.. feels gross
+            UIApplication.shared.windows.forEach({$0.endEditing(true)})
         }) {
             // Editing commited, gross syntax
             print(self.id)
