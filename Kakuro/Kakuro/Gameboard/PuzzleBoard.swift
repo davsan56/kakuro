@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Gameboard: View {
+struct PuzzleBoard: View {
     @EnvironmentObject var manager: Manager
 
     // TODO: make pretty, no more explicitly unwrapped, data binding, save the planet
@@ -22,22 +22,19 @@ struct Gameboard: View {
                     }
                 }
             }
-            
-            Button(action: { print("Validate results: \(self.manager.validateInputAnswers())") }) {
-                Text("Validate")
-            }
-                .padding(.top, 25)
-            
-            NumberInputBar()
-                .padding(.top, 25)
-                .environmentObject(self.manager)
         }
+        .padding()
+        .background(Color.black)
+        .border(Color.black, width: 10)
+        .cornerRadius(20)
     }
 }
 
-struct Gameboard_Previews: PreviewProvider {
+#if DEBUG
+struct PuzzleBoard_Previews: PreviewProvider {
     static var previews: some View {
-        Gameboard()
+        PuzzleBoard()
         .environmentObject(Manager())
     }
 }
+#endif
