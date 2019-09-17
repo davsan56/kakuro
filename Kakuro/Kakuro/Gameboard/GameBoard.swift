@@ -15,6 +15,7 @@ struct GameBoard: View {
     var body: some View {
         VStack {
             PuzzleBoard()
+                .environmentObject(self.manager)
             
             Button(action: { print("Validate results: \(self.manager.validateInputAnswers())") }) {
                 Text("Validate")
