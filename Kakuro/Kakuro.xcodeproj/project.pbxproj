@@ -26,6 +26,8 @@
 		86492F73231F192B00BE828E /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492F72231F192B00BE828E /* GameCell.swift */; };
 		86492F75231F1E7500BE828E /* PuzzleBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492F74231F1E7500BE828E /* PuzzleBoard.swift */; };
 		869F3A6A23303F480080D14D /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F3A6923303F480080D14D /* GameBoard.swift */; };
+		86E41CE8233FB9280030A436 /* WrongAnswersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */; };
+		86E41CED233FBAF20030A436 /* HintBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E41CEC233FBAF20030A436 /* HintBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		86492F72231F192B00BE828E /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		86492F74231F1E7500BE828E /* PuzzleBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoard.swift; sourceTree = "<group>"; };
 		869F3A6923303F480080D14D /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswersButton.swift; sourceTree = "<group>"; };
+		86E41CEC233FBAF20030A436 /* HintBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,13 +88,10 @@
 		63995590230B83050046809C /* Gameboard */ = {
 			isa = PBXGroup;
 			children = (
-				63995591230B832E0046809C /* EmptyEdge.swift */,
-				6353EE68230C4C3600E12F05 /* ClueEdge.swift */,
-				634D358E230C7A5800565DC3 /* InputSquare.swift */,
-				86492F72231F192B00BE828E /* GameCell.swift */,
+				86E41CEB233FB94B0030A436 /* Cells */,
+				86E41CEA233FB9420030A436 /* Inputs */,
+				86E41CE9233FB92D0030A436 /* Hints */,
 				86492F74231F1E7500BE828E /* PuzzleBoard.swift */,
-				8626F7A42327F68200A2F039 /* NumberInput.swift */,
-				8626F7A62327F6D300A2F039 /* NumberInputBar.swift */,
 				869F3A6923303F480080D14D /* GameBoard.swift */,
 			);
 			path = Gameboard;
@@ -144,6 +145,35 @@
 				86492F6C231EEBE500BE828E /* Manager.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		86E41CE9233FB92D0030A436 /* Hints */ = {
+			isa = PBXGroup;
+			children = (
+				86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */,
+				86E41CEC233FBAF20030A436 /* HintBar.swift */,
+			);
+			path = Hints;
+			sourceTree = "<group>";
+		};
+		86E41CEA233FB9420030A436 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				8626F7A42327F68200A2F039 /* NumberInput.swift */,
+				8626F7A62327F6D300A2F039 /* NumberInputBar.swift */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
+		86E41CEB233FB94B0030A436 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				63995591230B832E0046809C /* EmptyEdge.swift */,
+				6353EE68230C4C3600E12F05 /* ClueEdge.swift */,
+				634D358E230C7A5800565DC3 /* InputSquare.swift */,
+				86492F72231F192B00BE828E /* GameCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +255,7 @@
 				86492F73231F192B00BE828E /* GameCell.swift in Sources */,
 				54C80A57230C268B00C136CA /* KakuroPuzzle.swift in Sources */,
 				634D358F230C7A5800565DC3 /* InputSquare.swift in Sources */,
+				86E41CED233FBAF20030A436 /* HintBar.swift in Sources */,
 				869F3A6A23303F480080D14D /* GameBoard.swift in Sources */,
 				63E65BB72307435B00B69E6D /* SceneDelegate.swift in Sources */,
 				8626F7A52327F68200A2F039 /* NumberInput.swift in Sources */,
@@ -233,6 +264,7 @@
 				63E65BB92307435B00B69E6D /* ContentView.swift in Sources */,
 				54C80A552308366D00C136CA /* KakuroPuzzleData.swift in Sources */,
 				86492F6D231EEBE500BE828E /* Manager.swift in Sources */,
+				86E41CE8233FB9280030A436 /* WrongAnswersButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

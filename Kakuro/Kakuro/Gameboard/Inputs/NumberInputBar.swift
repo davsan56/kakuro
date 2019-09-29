@@ -18,6 +18,7 @@ struct NumberInputBar: View {
                     .environmentObject(self.manager)
             }
         }
+        .padding(.top, 25)
     }
 }
 

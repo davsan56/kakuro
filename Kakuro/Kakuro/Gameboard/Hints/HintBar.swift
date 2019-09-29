@@ -1,33 +1,29 @@
 //
-//  GameBoard.swift
+//  HintBar.swift
 //  Kakuro
 //
-//  Created by David San Antonio on 9/16/19.
+//  Created by David San Antonio on 9/28/19.
 //  Copyright © 2019 PPC. All rights reserved.
 //
 
 import SwiftUI
 
-struct GameBoard: View {
-    
+struct HintBar: View {
     @EnvironmentObject var manager: Manager
     
     var body: some View {
-        VStack {
-            PuzzleBoard()
-             
-            HintBar()
-            
-            NumberInputBar()
+        HStack {
+            WrongAnswersButton()
         }
         .environmentObject(self.manager)
+        .padding(.top, 25)
     }
 }
 
 #if DEBUG
-struct GameBoard_Previews: PreviewProvider {
+struct HintBar_Previews: PreviewProvider {
     static var previews: some View {
-        GameBoard()
+        HintBar()
         .environmentObject(Manager())
     }
 }

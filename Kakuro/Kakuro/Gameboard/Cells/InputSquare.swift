@@ -12,6 +12,9 @@ struct InputSquare: View, Equatable {
     @EnvironmentObject var manager: Manager
     @State private var currentValue: Int = 0
     
+    //TODO: Probably make this part of color extension, but couldnt figure it out
+    let lightBlue = Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255)
+    
     var id: (Int, Int)
     var size: CGFloat = 50
     
@@ -20,25 +23,29 @@ struct InputSquare: View, Equatable {
             // Gets rid of everything that makes it act like a textfield.. feels gross
             UIApplication.shared.windows.forEach({$0.endEditing(true)})
         }) {
-            // Editing commited, gross syntax
-            print(self.id)
-            
-            // TODO: probably not do this here, where's best?
-            if self.manager.inputAnswers == nil {
-                if let puzzleSize = self.manager.puzzles?.count {
-                    self.manager.initialize(size: puzzleSize)
-                }
-            }
-            self.manager.inputAnswers?[self.id.0][self.id.1] = self.currentValue
+            // Stuff in here wasn't getting called so I moved it to the tap gesture
         }
             .keyboardType(.numberPad)
             .frame(width: size, height: size, alignment: .center)
             .border(Color.black, width: 0.5)
-            .background(self.manager.selectedCell == self ? Color.blue.opacity(0.5) : Color.white)
+            .background(getBackgroundColor())
             .multilineTextAlignment(.center)
             .onTapGesture {
                 self.manager.selectedCell = self
+                
+                // TODO: probably not do this here, where's best?
+                // TODO: yeah idk what this does lol
+                if self.manager.inputAnswers == nil {
+                    if let puzzleSize = self.manager.puzzles?.count {
+                        self.manager.initialize(size: puzzleSize)
+                    }
+                }
+                self.manager.inputAnswers?[self.id.0][self.id.1] = self.currentValue
             }
+    }
+    
+    private func getBackgroundColor() -> Color {
+        return self.manager.selectedCell == self ? lightBlue : Color.white
     }
     
     private func toDisplay() -> String {

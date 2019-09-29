@@ -18,7 +18,7 @@ struct PuzzleBoard: View {
                 HStack(alignment: .center, spacing: 0) {
                     ForEach(0 ..< self.manager.puzzles![row].count) { column in
                         GameCell(cell: self.manager.puzzles![row][column], row: row, col: column)
-                            .environmentObject(self.manager)
+                        .environmentObject(self.manager)
                     }
                 }
             }
