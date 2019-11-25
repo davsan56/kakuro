@@ -11,6 +11,8 @@ import SwiftUI
 
 class Manager: ObservableObject {
     static let shared = Manager()
+    var cellStore: GamecellStore?
+    
     @Published var selectedCell: InputSquare?
     @Published var puzzles = PuzzleLoader.shared.loadPuzzles(filename: "puzzle1")?.cells
     @Published var inputAnswers: [[Int]]? = nil
@@ -45,29 +47,18 @@ class Manager: ObservableObject {
     }
     
     func highLightWrongCells() {
-        // TODO: Uh i was trying something like this but it didnt work
-//        guard let puzzle = puzzles else { return }
-//
-//        // Get the wrong cells
-//        var wrongCells: [(Int, Int)] = []
-//        for i in 0 ..< puzzle.count {
-//            for j in 0 ..< puzzle[i].count {
-//                // Checks input against accepted answer
-//                // Needs more logic?
-//                if let inputAnswer = inputAnswers?[i][j],
-//                let correctAnswer = puzzle[i][j].answer {
-//                    if inputAnswer != correctAnswer && inputAnswer != -1 {
-//                        wrongCells.append((i, j))
-//                    }
-//                }
-//            }
-//        }
-//
-//        // for all the wrong cells, highlight the matching input square
-//        for id in wrongCells {
-//            let cell = inputCells.first(where: {$0.id == id})
-//            cell?.setBackgroundColor(color: .red)
-//        }
+        guard let cells = Manager.shared.cellStore?.cells else {
+            fatalError("yeah that did not work")
+        }
+        for row in cells {
+            for cell in row {
+                if cell.currentNumber != 0, let answer = cell.cell.answer {
+                    if cell.currentNumber != answer {
+                        print("you have a wrong cell")
+                    }
+                }
+            }
+        }
     }
     
     // Check the current board input against known answers

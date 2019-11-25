@@ -11,7 +11,7 @@ import SwiftUI
 struct InputSquare: View, Equatable {
     @EnvironmentObject var manager: Manager
     @State private var currentValue: Int = 0
-//    @State private var backgroundColor: Color?
+    let info: GamecellType
     
     //TODO: Probably make this part of color extension, but couldnt figure it out
     let lightBlue = Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255)
@@ -34,6 +34,8 @@ struct InputSquare: View, Equatable {
             .onTapGesture {
 //                self.backgroundColor = nil
                 self.manager.selectedCell = self
+                
+                self.info.currentNumber = self.currentValue
                 
                 // TODO: probably not do this here, where's best?
                 // TODO: yeah idk what this does lol
@@ -71,7 +73,7 @@ struct InputSquare: View, Equatable {
 #if DEBUG
 struct InputSquare_Previews: PreviewProvider {
     static var previews: some View {
-        InputSquare(id: (0, 0))
+        InputSquare(info: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(topNumber: 0, bottomNumber: 0, answer: 0, bwSpace: .white), currentNumber: 0), id: (0, 0))
             .previewLayout(PreviewLayout.fixed(width: 100, height: 100))
             .environmentObject(Manager())
     }

@@ -11,19 +11,21 @@ import SwiftUI
 struct GameCell: View {
     @EnvironmentObject var manager: Manager
     
-    var cell: KakuroPuzzleCell
-    var row: Int
-    var col: Int
+//    var cell: KakuroPuzzleCell
+//    var row: Int
+//    var col: Int
+    
+    @ObservedObject var info: GamecellType
     
     var body: some View {
-        if self.cell.bwSpace! == .black {
+        if self.info.cell.bwSpace! == .black {
             return AnyView(EmptyEdge())
-        } else if self.cell.answer != nil {
-            let cell = InputSquare(id: (row, col))
+        } else if self.info.cell.answer != nil {
+            let cell = InputSquare(info: info, id: (self.info.row, self.info.col))
                 .environmentObject(self.manager)
             return AnyView(cell)
         } else {
-            return AnyView(ClueEdge(bottomNumber: self.cell.bottomNumber, topNumber: self.cell.topNumber))
+            return AnyView(ClueEdge(bottomNumber: self.info.cell.bottomNumber, topNumber: self.info.cell.topNumber))
         }
     }
 }
@@ -32,11 +34,11 @@ struct GameCell: View {
 struct GameCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            GameCell(cell: KakuroPuzzleCell(topNumber: 5, bottomNumber: 17, answer: nil, bwSpace: .white), row: 0, col: 0)
-            GameCell(cell: KakuroPuzzleCell(topNumber: 6, bottomNumber: nil, answer: nil, bwSpace: .white), row: 0, col: 0)
-            GameCell(cell: KakuroPuzzleCell(topNumber: nil, bottomNumber: 9, answer: nil, bwSpace: .white), row: 0, col: 0)
-            GameCell(cell: KakuroPuzzleCell(topNumber: nil, bottomNumber: nil, answer: nil, bwSpace: .black), row: 0, col: 0)
-            GameCell(cell: KakuroPuzzleCell(topNumber: nil, bottomNumber: nil, answer: 6, bwSpace: .white), row: 0, col: 0)
+            GameCell(info: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(topNumber: 5, bottomNumber: 17, answer: nil, bwSpace: .white), currentNumber: 0))
+            GameCell(info: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(topNumber: 6, bottomNumber: nil, answer: nil, bwSpace: .white), currentNumber: 0))
+            GameCell(info: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(topNumber: nil, bottomNumber: 9, answer: nil, bwSpace: .white), currentNumber: 0))
+            GameCell(info: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(topNumber: nil, bottomNumber: nil, answer: nil, bwSpace: .black), currentNumber: 0))
+            GameCell(info: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(topNumber: nil, bottomNumber: nil, answer: nil, bwSpace: .white), currentNumber: 0))
         }
         .environmentObject(Manager())
         .previewLayout(PreviewLayout.fixed(width: 100, height: 100))

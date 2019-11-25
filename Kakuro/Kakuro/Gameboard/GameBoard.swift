@@ -14,7 +14,7 @@ struct GameBoard: View {
     
     var body: some View {
         VStack {
-            PuzzleBoard()
+            PuzzleBoard(cellStore: self.manager.cellStore ?? GamecellStore())
              
             HintBar()
             
