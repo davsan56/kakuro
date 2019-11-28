@@ -54,7 +54,7 @@ class Manager: ObservableObject {
             for cell in row {
                 if cell.currentNumber != 0, let answer = cell.cell.answer {
                     if cell.currentNumber != answer {
-                        print("you have a wrong cell")
+                        cell.isIncorrect = true
                     }
                 }
             }

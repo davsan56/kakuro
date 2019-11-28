@@ -11,7 +11,7 @@ import SwiftUI
 struct InputSquare: View, Equatable {
     @EnvironmentObject var manager: Manager
     @State private var currentValue: Int = 0
-    let info: GamecellType
+    @ObservedObject var info: GamecellType
     
     //TODO: Probably make this part of color extension, but couldnt figure it out
     let lightBlue = Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255)
@@ -32,10 +32,7 @@ struct InputSquare: View, Equatable {
             .background(getBackgroundColor())
             .multilineTextAlignment(.center)
             .onTapGesture {
-//                self.backgroundColor = nil
                 self.manager.selectedCell = self
-                
-                self.info.currentNumber = self.currentValue
                 
                 // TODO: probably not do this here, where's best?
                 // TODO: yeah idk what this does lol
@@ -50,7 +47,19 @@ struct InputSquare: View, Equatable {
     
     private func getBackgroundColor() -> Color {
 //        return self.backgroundColor == nil ? (self.manager.selectedCell == self ? lightBlue : Color.white) : self.backgroundColor!
-        return self.manager.selectedCell == self ? lightBlue : Color.white
+        if self.manager.selectedCell == self {
+            if self.info.isIncorrect {
+                return Color.red
+            } else {
+                return lightBlue
+            }
+        } else {
+            if self.info.isIncorrect {
+                return Color.red
+            } else {
+                return Color.white
+            }
+        }
     }
     
     private func toDisplay() -> String {
@@ -59,6 +68,8 @@ struct InputSquare: View, Equatable {
     
     func setText(num: Int) {
         self.currentValue = num
+        self.info.isIncorrect = false
+        self.info.currentNumber = num
     }
     
 //    func setBackgroundColor(color: Color) {

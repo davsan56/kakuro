@@ -34,12 +34,18 @@ class GamecellType: ObservableObject, Identifiable {
             self.didChange.send(self)
         }
     }
+    @Published var isIncorrect: Bool {
+        didSet {
+            self.didChange.send(self)
+        }
+    }
 
     init(row: Int, col: Int, cell: KakuroPuzzleCell, currentNumber: Int) {
         self.row = row
         self.col = col
         self.cell = cell
         self.currentNumber = currentNumber
+        self.isIncorrect = false
     }
 
 }
