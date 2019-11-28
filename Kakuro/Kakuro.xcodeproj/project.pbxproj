@@ -30,6 +30,7 @@
 		869F3A6A23303F480080D14D /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F3A6923303F480080D14D /* GameBoard.swift */; };
 		86E41CE8233FB9280030A436 /* WrongAnswersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */; };
 		86E41CED233FBAF20030A436 /* HintBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E41CEC233FBAF20030A436 /* HintBar.swift */; };
+		86F25EC9238F908C001B9E60 /* GiveAnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F25EC8238F908C001B9E60 /* GiveAnswerButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		869F3A6923303F480080D14D /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswersButton.swift; sourceTree = "<group>"; };
 		86E41CEC233FBAF20030A436 /* HintBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintBar.swift; sourceTree = "<group>"; };
+		86F25EC8238F908C001B9E60 /* GiveAnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveAnswerButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			children = (
 				86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */,
 				86E41CEC233FBAF20030A436 /* HintBar.swift */,
+				86F25EC8238F908C001B9E60 /* GiveAnswerButton.swift */,
 			);
 			path = Hints;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				86492F73231F192B00BE828E /* GameCell.swift in Sources */,
 				54C80A57230C268B00C136CA /* KakuroPuzzle.swift in Sources */,
 				634D358F230C7A5800565DC3 /* InputSquare.swift in Sources */,
+				86F25EC9238F908C001B9E60 /* GiveAnswerButton.swift in Sources */,
 				86E41CED233FBAF20030A436 /* HintBar.swift in Sources */,
 				869F3A6A23303F480080D14D /* GameBoard.swift in Sources */,
 				63E65BB72307435B00B69E6D /* SceneDelegate.swift in Sources */,

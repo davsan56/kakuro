@@ -14,6 +14,7 @@ struct HintBar: View {
     var body: some View {
         HStack {
             WrongAnswersButton()
+            GiveAnswerButton()
         }
         .environmentObject(self.manager)
         .padding(.top, 25)

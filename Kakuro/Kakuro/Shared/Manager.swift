@@ -46,21 +46,6 @@ class Manager: ObservableObject {
         self.inputAnswers = allEmpty
     }
     
-    func highLightWrongCells() {
-        guard let cells = Manager.shared.cellStore?.cells else {
-            fatalError("yeah that did not work")
-        }
-        for row in cells {
-            for cell in row {
-                if cell.currentNumber != 0, let answer = cell.cell.answer {
-                    if cell.currentNumber != answer {
-                        cell.isIncorrect = true
-                    }
-                }
-            }
-        }
-    }
-    
     // Check the current board input against known answers
     func validateInputAnswers() -> Bool {
         guard let puzzle = puzzles else { return false }
@@ -79,4 +64,28 @@ class Manager: ObservableObject {
         }
         return true
     }
+    
+    // MARK: Hints
+    
+    func highLightWrongCells() {
+        guard let cells = Manager.shared.cellStore?.cells else {
+            fatalError("yeah that did not work")
+        }
+        for row in cells {
+            for cell in row {
+                if cell.currentNumber != 0, let answer = cell.cell.answer {
+                    if cell.currentNumber != answer {
+                        cell.isIncorrect = true
+                    }
+                }
+            }
+        }
+    }
+    
+    func giveAnswer() {
+        if let selectedCell = selectedCell, let answer = selectedCell.info.cell.answer {
+            selectedCell.setText(num: answer)
+        }
+    }
+    
 }
