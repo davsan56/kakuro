@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 
 class Manager: ObservableObject {
+    var gameBoard: GameBoard?
     static let shared = Manager()
     var cellStore: GamecellStore?
     
@@ -88,4 +89,44 @@ class Manager: ObservableObject {
         }
     }
     
+    func checkForGameOver() {
+        guard let cells = Manager.shared.cellStore?.cells else {
+            fatalError("yeah that did not work")
+        }
+        var finished = true
+        var incorrect = true
+        var hasIncorrectCellsHighlighted = false
+        // Check each cell if filled
+        outerloop: for row in cells {
+            for cell in row {
+                // if cell is actual cell
+                if cell.cell.bwSpace == .white && cell.cell.answer != nil {
+                    // If the cell is filled
+                    if cell.currentNumber != 0, let answer = cell.cell.answer {
+                        // If the cell is the incorrect answer break
+                        if cell.currentNumber != answer {
+                            incorrect = true
+                            if cell.isIncorrect {
+                                hasIncorrectCellsHighlighted = true
+                            }
+                        } else {
+                            incorrect = false
+                        }
+                    } else {
+                        finished = false
+                        break outerloop
+                    }
+                }
+            }
+        }
+        if finished && !incorrect && !hasIncorrectCellsHighlighted {
+            // send some sort of winning message
+            self.gameBoard?.showAlert(winner: true)
+        }
+        if finished && incorrect && !hasIncorrectCellsHighlighted {
+            // send some sort of something wrong message
+            self.gameBoard?.showAlert(winner: false)
+        }
+        // dont want to do anything if not finished
+    }
 }

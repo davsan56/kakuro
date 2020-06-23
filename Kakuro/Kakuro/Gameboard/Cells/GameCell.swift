@@ -1,5 +1,5 @@
 //
-//  Gameboard.swift
+//  GameCell.swift
 //  Kakuro
 //
 //  Created by David San Antonio on 9/3/19.
@@ -10,11 +10,6 @@ import SwiftUI
 
 struct GameCell: View {
     @EnvironmentObject var manager: Manager
-    
-//    var cell: KakuroPuzzleCell
-//    var row: Int
-//    var col: Int
-    
     @ObservedObject var info: GamecellType
     
     var body: some View {
@@ -25,7 +20,12 @@ struct GameCell: View {
                 .environmentObject(self.manager)
             return AnyView(cell)
         } else {
-            return AnyView(ClueEdge(bottomNumber: self.info.cell.bottomNumber, topNumber: self.info.cell.topNumber))
+            return AnyView(
+                ClueEdge(bottomNumber: self.info.cell.bottomNumber,
+                         topNumber: self.info.cell.topNumber,
+                         info: self.info
+                )
+            )
         }
     }
 }

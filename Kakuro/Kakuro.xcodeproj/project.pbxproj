@@ -158,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */,
-				86E41CEC233FBAF20030A436 /* HintBar.swift */,
 				86F25EC8238F908C001B9E60 /* GiveAnswerButton.swift */,
+				86E41CEC233FBAF20030A436 /* HintBar.swift */,
 			);
 			path = Hints;
 			sourceTree = "<group>";

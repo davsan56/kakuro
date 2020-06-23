@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-class GamecellType: ObservableObject, Identifiable {
+class GamecellType: ObservableObject, Identifiable, CustomStringConvertible {
 
     var didChange = PassthroughSubject<GamecellType, Never>()
 
@@ -29,7 +29,7 @@ class GamecellType: ObservableObject, Identifiable {
             self.didChange.send(self)
         }
     }
-    var currentNumber: Int {
+    @Published var currentNumber: Int {
         didSet {
             self.didChange.send(self)
         }
@@ -47,6 +47,9 @@ class GamecellType: ObservableObject, Identifiable {
         self.currentNumber = currentNumber
         self.isIncorrect = false
     }
-
+    
+    var description: String {
+      return "GamecellType (\(row), \(col)) : num = \(currentNumber)"
+    }
 }
 

@@ -26,27 +26,31 @@ struct InputSquare: View, Equatable {
         }) {
             // Stuff in here wasn't getting called so I moved it to the tap gesture
         }
-            .keyboardType(.numberPad)
-            .frame(width: size, height: size, alignment: .center)
-            .border(Color.black, width: 0.5)
-            .background(getBackgroundColor())
-            .multilineTextAlignment(.center)
-            .onTapGesture {
-                self.manager.selectedCell = self
-                
-                // TODO: probably not do this here, where's best?
-                // TODO: yeah idk what this does lol
-                if self.manager.inputAnswers == nil {
-                    if let puzzleSize = self.manager.puzzles?.count {
-                        self.manager.initialize(size: puzzleSize)
-                    }
+        .keyboardType(.numberPad)
+        .frame(width: size, height: size, alignment: .center)
+        .border(Color.black, width: 0.5)
+        .background(getBackgroundColor())
+        .multilineTextAlignment(.center)
+        .onTapGesture {
+            self.manager.selectedCell = self
+            
+            // Reset this so if you click on a red cell it wont be red
+            // Maybe we dont want this in the future, depending if we change
+            // The what happens in the UI when a cell is selected
+            self.info.isIncorrect = false
+            
+            // TODO: probably not do this here, where's best?
+            // TODO: yeah idk what this does lol
+            if self.manager.inputAnswers == nil {
+                if let puzzleSize = self.manager.puzzles?.count {
+                    self.manager.initialize(size: puzzleSize)
                 }
-                self.manager.inputAnswers?[self.id.0][self.id.1] = self.currentValue
             }
+            self.manager.inputAnswers?[self.id.0][self.id.1] = self.currentValue
+        }
     }
     
     private func getBackgroundColor() -> Color {
-//        return self.backgroundColor == nil ? (self.manager.selectedCell == self ? lightBlue : Color.white) : self.backgroundColor!
         if self.manager.selectedCell == self {
             if self.info.isIncorrect {
                 return Color.red
@@ -71,10 +75,6 @@ struct InputSquare: View, Equatable {
         self.info.isIncorrect = false
         self.info.currentNumber = num
     }
-    
-//    func setBackgroundColor(color: Color) {
-//        self.backgroundColor = color
-//    }
     
     static func == (lhs: InputSquare, rhs: InputSquare) -> Bool {
         return lhs.id == rhs.id
