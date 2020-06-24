@@ -1,5 +1,5 @@
 //
-//  Gameboard.swift
+//  PuzzleBoard.swift
 //  Kakuro
 //
 //  Created by David San Antonio on 9/3/19.
