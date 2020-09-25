@@ -11,6 +11,7 @@ import SwiftUI
 struct ClueEdge: View {
     var bottomNumber: Int?
     var topNumber: Int?
+    
     @ObservedObject var info: GamecellType
     
     var size: Double = 50
@@ -139,17 +140,14 @@ struct ClueEdge: View {
     }
 }
 
-#if DEBUG
 struct ClueEdge_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ClueEdge(bottomNumber: 43, topNumber: 7,
+            ClueEdge(bottomNumber: 43,
+                     topNumber: 7,
                      info: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(), currentNumber: 0)
-                     )
-//            ClueEdge(bottomNumber: 5, bottomCell: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(), currentNumber: 0))
-//            ClueEdge(topNumber: 32, topCell: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(), currentNumber: 0))
+                    )
         }
         .previewLayout(.fixed(width: 100, height: 100))
     }
 }
-#endif

@@ -17,8 +17,6 @@ class Manager: ObservableObject {
     @Published var selectedCell: InputSquare?
     @Published var puzzles = PuzzleLoader.shared.loadPuzzles(filename: "puzzle1")?.cells
     @Published var inputAnswers: [[Int]]? = nil
-    // This was the part that didnt work. I could never add an inputsquare to the array
-//    @Published var inputCells: [InputSquare] = []
     
     // Pretty printer for the data
     func printInputAnswers() {
@@ -119,6 +117,9 @@ class Manager: ObservableObject {
                 }
             }
         }
+        // Only show alert if all boxes filled in (finished == true)
+        // Don't want to show alert if user has all boxes filled, but some
+        //   marked red from the hint
         if finished && !incorrect && !hasIncorrectCellsHighlighted {
             // send some sort of winning message
             self.gameBoard?.showAlert(winner: true)
@@ -127,6 +128,5 @@ class Manager: ObservableObject {
             // send some sort of something wrong message
             self.gameBoard?.showAlert(winner: false)
         }
-        // dont want to do anything if not finished
     }
 }

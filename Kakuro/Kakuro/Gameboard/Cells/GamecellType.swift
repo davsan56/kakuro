@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 class GamecellType: ObservableObject, Identifiable, CustomStringConvertible {
-
     var didChange = PassthroughSubject<GamecellType, Never>()
 
     let id = UUID()

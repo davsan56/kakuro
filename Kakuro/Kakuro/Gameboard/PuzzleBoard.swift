@@ -32,11 +32,9 @@ struct PuzzleBoard: View {
     }
 }
 
-#if DEBUG
 struct PuzzleBoard_Previews: PreviewProvider {
     static var previews: some View {
         PuzzleBoard(cellStore: GamecellStore())
         .environmentObject(Manager())
     }
 }
-#endif

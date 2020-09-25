@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @EnvironmentObject var manager: Manager
     
     var body: some View {
@@ -20,11 +19,9 @@ struct ContentView: View {
     }
 }
 
-#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(Manager())
     }
 }
-#endif

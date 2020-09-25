@@ -9,7 +9,6 @@
 import Foundation
 
 class PuzzleLoader {
-    
     static let shared = PuzzleLoader()
     let fileExtension = "json"
     
@@ -42,7 +41,6 @@ class PuzzleLoader {
         var allCells = [[KakuroPuzzleCell]]()
         
         for i in 0 ..< puzzleData.count {
-            
             var cellRow = [KakuroPuzzleCell]()
             
             for j in 0 ..< puzzleData[i].count {

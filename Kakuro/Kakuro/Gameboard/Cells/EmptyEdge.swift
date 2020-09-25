@@ -21,11 +21,9 @@ struct EmptyEdge: View {
     }
 }
 
-#if DEBUG
 struct EmptyEdge_Previews: PreviewProvider {
     static var previews: some View {
         EmptyEdge()
             .previewLayout(PreviewLayout.fixed(width: 100, height: 100))
     }
 }
-#endif

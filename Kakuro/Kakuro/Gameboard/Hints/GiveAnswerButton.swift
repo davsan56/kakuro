@@ -23,7 +23,7 @@ struct GiveAnswerButton: View {
 struct GiveAnswerButton_Previews: PreviewProvider {
     static var previews: some View {
         GiveAnswerButton()
-        .previewLayout(PreviewLayout.fixed(width: 100, height: 100))
-        .environmentObject(Manager())
+            .previewLayout(PreviewLayout.fixed(width: 100, height: 100))
+            .environmentObject(Manager())
     }
 }

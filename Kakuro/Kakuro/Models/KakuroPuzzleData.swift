@@ -15,7 +15,6 @@ struct KakuroPuzzleData: Decodable {
     
     // Basic validator to make sure data format is okay
     func validateData() -> Bool {
-        
         // Make sure it's not empty
         if puzzle.count == 0 {
             return false

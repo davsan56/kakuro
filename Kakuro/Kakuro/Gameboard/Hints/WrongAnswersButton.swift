@@ -20,12 +20,10 @@ struct WrongAnswersButton: View {
     }
 }
 
-#if DEBUG
 struct WrongAnswersButton_Previews: PreviewProvider {
     static var previews: some View {
         WrongAnswersButton()
-        .previewLayout(PreviewLayout.fixed(width: 100, height: 100))
-        .environmentObject(Manager())
+            .previewLayout(PreviewLayout.fixed(width: 100, height: 100))
+            .environmentObject(Manager())
     }
 }
-#endif

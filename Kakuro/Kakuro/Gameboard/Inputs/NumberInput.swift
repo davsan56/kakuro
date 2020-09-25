@@ -28,7 +28,6 @@ struct NumberInput: View {
     }
 }
 
-#if DEBUG
 struct NumberInput_Previews: PreviewProvider {
     static var previews: some View {
         NumberInput(number: 8)
@@ -36,4 +35,3 @@ struct NumberInput_Previews: PreviewProvider {
             .environmentObject(Manager())
     }
 }
-#endif

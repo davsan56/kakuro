@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct GameBoard: View {
-    
     @EnvironmentObject var manager: Manager
     @State private var showingAlert = false
     @State private var winningAlert = false
@@ -29,14 +28,17 @@ struct GameBoard: View {
         .alert(isPresented: $showingAlert) {
             if winningAlert {
                 return Alert(title: Text("Congrats!"),
-                      message: Text("You solved the puzzle. Would you like to play again?"),
-                      primaryButton: .default(Text("Yes"), action: {
-                        // some sort of restart here
-                      }),
-                      secondaryButton: .cancel()
-                    )
+                             message: Text("You solved the puzzle. Would you like to play again?"),
+                             primaryButton: .default(Text("Yes"), action: {
+                                // some sort of restart here
+                             }),
+                             secondaryButton: .cancel()
+                        )
             } else {
-                return Alert(title: Text("Oops!"), message: Text("Something isn't right"), dismissButton: .default(Text("Ok")))
+                return Alert(title: Text("Oops!"),
+                             message: Text("Something isn't right"),
+                             dismissButton: .default(Text("Ok"))
+                        )
             }
         }
     }
@@ -47,11 +49,9 @@ struct GameBoard: View {
     }
 }
 
-#if DEBUG
 struct GameBoard_Previews: PreviewProvider {
     static var previews: some View {
         GameBoard()
         .environmentObject(Manager())
     }
 }
-#endif

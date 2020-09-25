@@ -21,11 +21,9 @@ struct HintBar: View {
     }
 }
 
-#if DEBUG
 struct HintBar_Previews: PreviewProvider {
     static var previews: some View {
         HintBar()
-        .environmentObject(Manager())
+            .environmentObject(Manager())
     }
 }
-#endif

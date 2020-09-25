@@ -22,11 +22,9 @@ struct NumberInputBar: View {
     }
 }
 
-#if DEBUG
 struct NumberInputBar_Previews: PreviewProvider {
     static var previews: some View {
         NumberInputBar()
-        .environmentObject(Manager())
+            .environmentObject(Manager())
     }
 }
-#endif

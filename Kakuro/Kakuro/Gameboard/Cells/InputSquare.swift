@@ -20,7 +20,7 @@ struct InputSquare: View, Equatable {
     var size: CGFloat = 50
     
     var body: some View {
-        TextField("", text: .constant(toDisplay()), onEditingChanged: { (isChanged) in
+        TextField("", text: .constant(toDisplay()), onEditingChanged: { _ in
             // Gets rid of everything that makes it act like a textfield.. feels gross
             UIApplication.shared.windows.forEach({$0.endEditing(true)})
         }) {
@@ -81,7 +81,6 @@ struct InputSquare: View, Equatable {
     }
 }
 
-#if DEBUG
 struct InputSquare_Previews: PreviewProvider {
     static var previews: some View {
         InputSquare(info: GamecellType(row: 0, col: 0, cell: KakuroPuzzleCell(topNumber: 0, bottomNumber: 0, answer: 0, bwSpace: .white), currentNumber: 0), id: (0, 0))
@@ -89,4 +88,3 @@ struct InputSquare_Previews: PreviewProvider {
             .environmentObject(Manager())
     }
 }
-#endif
