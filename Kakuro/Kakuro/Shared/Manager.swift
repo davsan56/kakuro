@@ -31,6 +31,10 @@ class Manager: ObservableObject {
         }
     }
     
+    init() {
+        self.initialize(size: self.puzzles?.count ?? 0)
+    }
+    
     // TODO: Better way to do this?
     // nils gets nasty in 2-d array when unwrap chaining
     func initialize(size: Int) {
@@ -84,6 +88,7 @@ class Manager: ObservableObject {
     func giveAnswer() {
         if let selectedCell = selectedCell, let answer = selectedCell.info.cell.answer {
             selectedCell.setText(num: answer)
+            checkForGameOver()
         }
     }
     

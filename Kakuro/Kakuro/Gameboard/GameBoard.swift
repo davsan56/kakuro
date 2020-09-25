@@ -52,6 +52,6 @@ struct GameBoard: View {
 struct GameBoard_Previews: PreviewProvider {
     static var previews: some View {
         GameBoard()
-        .environmentObject(Manager())
+            .environmentObject(Manager())
     }
 }

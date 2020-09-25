@@ -12,19 +12,17 @@ struct GameCell: View {
     @EnvironmentObject var manager: Manager
     @ObservedObject var info: GamecellType
     
+    @ViewBuilder
     var body: some View {
         if self.info.cell.bwSpace! == .black {
-            return AnyView(EmptyEdge())
+            EmptyEdge()
         } else if self.info.cell.answer != nil {
-            let cell = InputSquare(info: info, id: (self.info.row, self.info.col))
+            InputSquare(info: info, id: (self.info.row, self.info.col))
                 .environmentObject(self.manager)
-            return AnyView(cell)
         } else {
-            return AnyView(
-                ClueEdge(bottomNumber: self.info.cell.bottomNumber,
-                         topNumber: self.info.cell.topNumber,
-                         info: self.info
-                )
+            ClueEdge(bottomNumber: self.info.cell.bottomNumber,
+                     topNumber: self.info.cell.topNumber,
+                     info: self.info
             )
         }
     }

@@ -28,6 +28,7 @@
 		86492F73231F192B00BE828E /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492F72231F192B00BE828E /* GameCell.swift */; };
 		86492F75231F1E7500BE828E /* PuzzleBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492F74231F1E7500BE828E /* PuzzleBoard.swift */; };
 		869F3A6A23303F480080D14D /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F3A6923303F480080D14D /* GameBoard.swift */; };
+		86BA7317251D72160005EBAE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7316251D72160005EBAE /* Colors.swift */; };
 		86E41CE8233FB9280030A436 /* WrongAnswersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */; };
 		86E41CED233FBAF20030A436 /* HintBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E41CEC233FBAF20030A436 /* HintBar.swift */; };
 		86F25EC9238F908C001B9E60 /* GiveAnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F25EC8238F908C001B9E60 /* GiveAnswerButton.swift */; };
@@ -57,6 +58,7 @@
 		86492F72231F192B00BE828E /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		86492F74231F1E7500BE828E /* PuzzleBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoard.swift; sourceTree = "<group>"; };
 		869F3A6923303F480080D14D /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		86BA7316251D72160005EBAE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		86E41CE7233FB9280030A436 /* WrongAnswersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswersButton.swift; sourceTree = "<group>"; };
 		86E41CEC233FBAF20030A436 /* HintBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintBar.swift; sourceTree = "<group>"; };
 		86F25EC8238F908C001B9E60 /* GiveAnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveAnswerButton.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				86492F6C231EEBE500BE828E /* Manager.swift */,
 				8607BB71238B7AE400CFEE9A /* GamecellStore.swift */,
+				86BA7316251D72160005EBAE /* Colors.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				634D358F230C7A5800565DC3 /* InputSquare.swift in Sources */,
 				86F25EC9238F908C001B9E60 /* GiveAnswerButton.swift in Sources */,
 				86E41CED233FBAF20030A436 /* HintBar.swift in Sources */,
+				86BA7317251D72160005EBAE /* Colors.swift in Sources */,
 				869F3A6A23303F480080D14D /* GameBoard.swift in Sources */,
 				63E65BB72307435B00B69E6D /* SceneDelegate.swift in Sources */,
 				8626F7A52327F68200A2F039 /* NumberInput.swift in Sources */,

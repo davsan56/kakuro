@@ -10,11 +10,12 @@ import SwiftUI
 
 struct InputSquare: View, Equatable {
     @EnvironmentObject var manager: Manager
-    @State private var currentValue: Int = 0
     @ObservedObject var info: GamecellType
-    
-    //TODO: Probably make this part of color extension, but couldnt figure it out
-    let lightBlue = Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255)
+    @State private var currentValue: Int = 0 {
+        didSet {
+            self.manager.checkForGameOver()
+        }
+    }
     
     var id: (Int, Int)
     var size: CGFloat = 50
@@ -39,13 +40,7 @@ struct InputSquare: View, Equatable {
             // The what happens in the UI when a cell is selected
             self.info.isIncorrect = false
             
-            // TODO: probably not do this here, where's best?
-            // TODO: yeah idk what this does lol
-            if self.manager.inputAnswers == nil {
-                if let puzzleSize = self.manager.puzzles?.count {
-                    self.manager.initialize(size: puzzleSize)
-                }
-            }
+            // Set the cells answer in the manager
             self.manager.inputAnswers?[self.id.0][self.id.1] = self.currentValue
         }
     }
@@ -55,7 +50,7 @@ struct InputSquare: View, Equatable {
             if self.info.isIncorrect {
                 return Color.red
             } else {
-                return lightBlue
+                return Color.hightlightBlue
             }
         } else {
             if self.info.isIncorrect {

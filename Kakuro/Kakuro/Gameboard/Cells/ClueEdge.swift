@@ -17,30 +17,28 @@ struct ClueEdge: View {
     var size: Double = 50
     var offset: Double = 0.5
     
+    @ViewBuilder
     var body: some View {
         ZStack {
-            // Cant use if let here because swiftui
-            if (bottomNumber != nil) {
+            if let bottomNumber = bottomNumber {
                 Path { path in
                     path.move(to: CGPoint(x: offset, y: offset))
                     path.addLine(to: CGPoint(x: offset, y: size))
                     path.addLine(to: CGPoint(x: size - (offset * 2), y: size))
                 }
                 .foregroundColor(getBackgroundColor(top: false))
-                // ! is fine because we checked it in the if
-                Text(String(bottomNumber!))
+                Text(String(bottomNumber))
                     .position(x: CGFloat(size / 4), y: CGFloat(Double(size) / 1.5))
             }
             
-            // Cant use if let here because swiftui
-            if (topNumber != nil) {
+            if let topNumber = topNumber {
                 Path { path in
                     path.move(to: CGPoint(x: offset * 2, y: offset))
                     path.addLine(to: CGPoint(x: size - offset, y: offset))
                     path.addLine(to: CGPoint(x: size - offset, y: size))
                 }
                 .foregroundColor(getBackgroundColor(top: true))
-                Text(String(topNumber!))
+                Text(String(topNumber))
                     .position(x: CGFloat(Double(size) / 1.5), y: CGFloat(size / 4))
             }
         }
@@ -48,6 +46,17 @@ struct ClueEdge: View {
         .background(Color.black)
     }
     
+    /// This function determines what the background color should be for a clue cell
+    /// ie green for numbers add up, red for numbers that down add up, gray otherwise
+    ///
+    /// TODO: This doesn't work, the background color doesn't change, I think it needs to be
+    /// a state variable, but idk how that variable will will get updated.
+    /// On every edit of a cell that is part of this edge? I think thats what I was going for here.
+    ///
+    /// This might work, just need to trigger it on every cell edit
+    ///
+    /// - Parameter top: Does this cell have a top number
+    /// - Returns: The background color
     private func getBackgroundColor(top: Bool) -> Color {
         if top, let topNumber = self.topNumber {
             let inputCellsToEdge = getCellsThatArePartOfThisEdge(vertical: !top, directionalCell: info)
@@ -60,6 +69,12 @@ struct ClueEdge: View {
         }
     }
     
+    /// This function goes through all the cells in the board and determines if the current
+    /// clue edge "owns" thiat cell.
+    /// - Parameters:
+    ///   - vertical: If the cell points vertically or horizontally
+    ///   - directionalCell: The cell
+    /// - Returns: An array of cells that this clue edge owns
     private func getCellsThatArePartOfThisEdge(vertical: Bool, directionalCell: GamecellType) -> [GamecellType] {
         guard let cells = Manager.shared.cellStore?.cells else {
             fatalError("Manager should have cells")
@@ -115,6 +130,12 @@ struct ClueEdge: View {
         return inputCellsToEdge
     }
     
+    /// This function determines the color that a clue edge should be based on the
+    /// sum of the value of the cells that this edge owns
+    /// - Parameters:
+    ///   - totalNumber: number in the clue edge
+    ///   - inputCellsToEdge: all the cells that this clue edge owns
+    /// - Returns: the color that the background should be
     private func getColorFromSumOfInputCells(totalNumber: Int, inputCellsToEdge: [GamecellType]) -> Color {
         // Check if the input cells add up to the clue edge
         var sum = 0

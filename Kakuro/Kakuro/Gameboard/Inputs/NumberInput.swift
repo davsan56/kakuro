@@ -16,9 +16,6 @@ struct NumberInput: View {
     var body: some View {
         Button(action: {
             self.manager.selectedCell?.setText(num: self.number)
-            
-            // Check for game over
-            self.manager.checkForGameOver()
         }) {
             Text(String(number))
                 .foregroundColor(.black)
